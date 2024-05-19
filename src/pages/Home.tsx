@@ -5,7 +5,6 @@ import { Checkbox } from "../components/Checkbox/Checkbox";
 import { Textbox } from "../components/Textbox/Textbox";
 import { getIcon } from "../services/IconService";
 import { Celcius } from "@khanisak/temperature-converter";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 export enum SearchTypeEnum {

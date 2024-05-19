@@ -1,0 +1,347 @@
+.background {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  background-image: url("../../public/main.jpg");
+
+  .searchBoxAndIcon {
+    width: 100%;
+    display: flex;
+  }
+
+  @media (max-width: 1023px) {
+    flex-direction: column;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #6d97ca;
+    opacity: 0.1;
+  }
+
+  &.snow,
+  &.sun,
+  &.fog,
+  &.heavycloud,
+  &.rain,
+  &.storm,
+  &.overcast {
+    background-position: center;
+    background-size: cover;
+  }
+
+  .main {
+    width: 67%;
+    position: relative;
+
+    @media (max-width: 1023px) {
+      width: 100%;
+      height: 50%;
+
+      .mobileSearchBox {
+        width: 75%;
+        position: absolute;
+        content: "";
+        z-index: 2;
+        top: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    .weather {
+      width: fit-content;
+      height: fit-content;
+      display: flex;
+      align-items: center;
+      color: white;
+      font-weight: 500;
+      position: absolute;
+      content: "";
+      z-index: 2;
+      left: 50%;
+      bottom: 20%;
+      transform: translateX(-50%);
+      background-color: rgba(109, 151, 202, 0.1);
+
+      @media (max-width: 1023px) {
+        bottom: 10%;
+      }
+
+      .temperature {
+        height: fit-content;
+        margin-right: 8px;
+        font-size: 143px;
+
+        @media (max-width: 1023px) {
+          font-size: 64px;
+        }
+
+        @media (max-width: 767px) {
+          font-size: 32px;
+        }
+      }
+
+      .weatherDescription {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        margin-right: 8px;
+        .city {
+          font-size: 60px;
+
+          @media (max-width: 1023px) {
+            font-size: 30px;
+          }
+
+          @media (max-width: 767px) {
+            font-size: 16px;
+          }
+        }
+
+        .date {
+          font-size: 18px;
+
+          @media (max-width: 1023px) {
+            font-size: 10px;
+          }
+
+          @media (max-width: 767px) {
+            font-size: 8px;
+          }
+        }
+      }
+
+      .weatherIcon {
+        display: flex;
+        align-items: flex-end;
+        margin-right: 8px;
+      }
+    }
+  }
+
+  .panel {
+    width: 33%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    border-left: solid 3px rgba(255, 255, 255, 0.1);
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    @media (max-width: 1023px) {
+      width: 100%;
+      height: calc(50% - 3px);
+      padding: 0;
+      border-top: solid 3px rgba(255, 255, 255, 0.1);
+      border-left: none;
+    }
+
+    h2 {
+      font-weight: 600;
+      text-transform: uppercase;
+
+      @media (max-width: 767px) {
+        font-size: 14px;
+        text-align: center;
+      }
+    }
+
+    .settings,
+    .weatherDetails,
+    .favoriteList,
+    .lastSearchesList {
+      width: 100%;
+      margin-top: 30px;
+      padding-bottom: 20px;
+      border-bottom: solid 1px white;
+      color: white;
+      font-size: 18px;
+
+      @media (max-width: 1023px) {
+        width: 50%;
+      }
+
+      @media (max-width: 767px) {
+        width: 75%;
+        max-width: 305px;
+        font-size: 14px;
+      }
+
+      .settingDetail {
+        margin-top: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: white;
+
+        @media (max-width: 767px) {
+          margin-top: 16px;
+        }
+
+        .items {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 16px;
+
+          @media (max-width: 767px) {
+            margin-top: 8px;
+          }
+
+          .item {
+            display: flex;
+
+            label {
+              height: fit-content;
+              color: rgba(255, 255, 255, 0.7);
+            }
+
+            .checkbox {
+              width: 15px;
+              height: 15px;
+              margin-left: 8px;
+              border: 2px solid white;
+              border-radius: 50%;
+              position: relative;
+              cursor: pointer;
+
+              @media (max-width: 767px) {
+                width: 8px;
+                height: 8px;
+              }
+
+              &.active::after {
+                position: absolute;
+                content: "";
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background-color: white;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .weatherDetails,
+    .favoriteList {
+      @media (max-width: 1023px) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &.snow {
+    background-image: url("../../public/snow.jpg");
+  }
+
+  &.sun {
+    background-image: url("../../public/sun.jpg");
+  }
+
+  &.fog {
+    background-image: url("../../public/fog.jpg");
+  }
+
+  &.heavycloud {
+    background-image: url("../../public/heavycloud.jpg");
+  }
+
+  &.rain {
+    background-image: url("../../public/rain.jpg");
+  }
+
+  &.storm {
+    background-image: url("../../public/storm.jpg");
+  }
+  &.overcast {
+    background-image: url("../../public/cloud.jpg");
+  }
+
+  &.heavycloud,
+  &.overcast,
+  &.sun,
+  &.fog,
+  &.storm {
+    .weather {
+      background-color: transparent;
+    }
+  }
+
+  &.overcast,
+  &.sun,
+  &.fog {
+    input {
+      color: black;
+    }
+
+    .weather {
+      color: black;
+
+      & > div {
+        color: black;
+      }
+    }
+
+    .panel {
+      border-left: solid 3px rgba(0, 0, 0, 0.1);
+
+      @media (max-width: 767px) {
+        border-left: none;
+        border-top: solid 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .settings .settingDetail .items .item {
+        label {
+          color: rgba(0, 0, 0, 0.7);
+        }
+
+        .checkbox {
+          border: 2px solid black;
+
+          &.active::after {
+            background-color: black;
+          }
+        }
+      }
+    }
+
+    .searchBoxAndIcon {
+      > div:first-child {
+        border-bottom: solid 1px black;
+      }
+
+      button,
+      div {
+        color: black;
+      }
+    }
+
+    h2,
+    label,
+    div {
+      color: black;
+    }
+
+    .settings,
+    .weatherDetails,
+    .favoriteList,
+    .lastSearchesList {
+      border-bottom: solid 1px black;
+
+      button {
+        color: black;
+      }
+    }
+  }
+}

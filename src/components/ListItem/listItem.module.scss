@@ -1,0 +1,47 @@
+.listItem {
+  height: 30px;
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 400;
+
+  @media (max-width: 767px) {
+    height: 20px;
+    margin-top: 16px;
+  }
+
+  label {
+    height: fit-content;
+    opacity: 0.7;
+  }
+
+  & > div {
+    display: flex;
+    align-items: center;
+
+    p {
+      height: fit-content;
+    }
+
+    .icon {
+      margin-left: 16px;
+    }
+
+    button {
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      margin-left: 16px;
+      background-color: transparent;
+      border: none;
+      color: white;
+      cursor: pointer;
+
+      @media (max-width: 767px) {
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+}

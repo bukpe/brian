@@ -112,7 +112,15 @@ const getWeatherByLocation = (search: SearchType): Promise<WeatherDTO> => {
       // } else {
       //   return Promise.resolve(alert(`${data.error.code} - ${data.error.info}`));
       // }
-      return Promise.resolve({ ...weatherMock, location: { ...weatherMock.location, name: query } });
+      return Promise.resolve({
+        ...weatherMock,
+        location: {
+          ...weatherMock.location,
+          name: search.type === SearchTypeEnum.LOCATION ? search.location : "",
+          lat: search.type === SearchTypeEnum.COORDINATES ? search.coordinates.lat : "",
+          lon: search.type === SearchTypeEnum.COORDINATES ? search.coordinates.lon : "",
+        },
+      });
     })
     .catch((err: AxiosError) => {
       errorHandler(err);
